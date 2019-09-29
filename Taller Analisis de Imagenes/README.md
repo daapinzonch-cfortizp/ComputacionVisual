@@ -41,20 +41,25 @@ El objetivo principal de este taller es realizar operaciones para analisis de im
 En primera instancia hicimos la conversión a escala de grises de las imágenes y del video en tiempo real, esto lo hicimos de tres formas distintas RGB Mean, Luma 601 y Luma 709, en las imágenes luego de aplicarse cualquiera de estas operaciones se puede apreciar un histograma que muestra la frecuencia de los pixeles en la imagen, se puede realizar la segmentación escogiendo un rango sobre el histograma, aquí solo se mostraran los pixeles que se encuentran dentro del rango y los demás se dejaran de color blanco.
 
 ![Escala de Grises(RGB Promedio) en Imágen. Despliegue histograma](Recursos/Escala%20de%20Grises.JPG)
+Escala de Grises(RGB Promedio) en Imágen. Despliegue histograma
 
 ![Escala de Grises(RGB Promedio) en Imágen. Segmentacion a partir de histograma](https://github.com/daapinzonch-cfortizp/ComputacionVisual/blob/master/Taller%20Analisis%20de%20Imagenes/Recursos/SegmentacionGrises.JPG)
+Escala de Grises(RGB Promedio) en Imágen. Segmentacion a partir de histograma
 
 Tambien se aplicaron algunas máscaras de convolución en las imagenes y en los videos en tiempo real, algunas de ellas como la Identity, Edge Detection (3 tipos distintos), Sharpen, Box Blur, Gaussian Blur entre otros.
 
 ![Mascara(Edge Detection) en Imágen](https://github.com/daapinzonch-cfortizp/ComputacionVisual/blob/master/Taller%20Analisis%20de%20Imagenes/Recursos/Mascara.JPG)
+Mascara(Edge Detection) en Imágen
 
 En todas las operaciones que se realizaron en videos se puede medir la eficiencia computacional de estas, esto medido con una tasa de 30 fps y los resultados se encuentran entre 17 y 24, estos valores varían según la operación realizada.
 
 ![Eficiencia Computacional en Video](https://github.com/daapinzonch-cfortizp/ComputacionVisual/blob/master/Taller%20Analisis%20de%20Imagenes/Recursos/FrameRate.JPG)
+Eficiencia Computacional en Video
 
 Por último para poder ver el trabajo realizado en este laboratorio se creó una ventana interactiva donde se pueden ver las operaciones realizadas a las imágenes y los videos, los histogramas y la eficiencia computacional. 
 
 ![Ventana Interactiva](https://github.com/daapinzonch-cfortizp/ComputacionVisual/blob/master/Taller%20Analisis%20de%20Imagenes/Recursos/Interactiva.JPG)
+Ventana Interactiva
 
 ## Entrega
 
