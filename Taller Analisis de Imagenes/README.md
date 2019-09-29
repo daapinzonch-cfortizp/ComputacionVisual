@@ -32,7 +32,6 @@ Completar la tabla:
 | Integrante      | github nick |
 |-----------------|-------------|
 | Daniel Pinzon   | daapinzonch |
-|-----------------|-------------|
 | Christian Ortiz | cfortizp    |
 
 ## Discusión
