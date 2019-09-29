@@ -697,7 +697,7 @@ void draw() {
   }
   if (video) {
     if(keytag!='0'){
-    frameRate(60);
+    frameRate(30);
     if (keytag=='1') {
       grisrgbvid();
       image(pg, maskcor[0], maskcor[1], 330, 330);
