@@ -29,9 +29,11 @@ Descompriman el archivo `*.zip` en la caperta de `libraries` de su sketchbook (e
 
 Completar la tabla:
 
-| Integrante | github nick |
-|------------|-------------|
-|            |             |
+| Integrante      | github nick |
+|-----------------|-------------|
+| Daniel Pinzon   | daapinzonch |
+|-----------------|-------------|
+| Christian Ortiz | cfortizp    |
 
 ## Discusión
 
