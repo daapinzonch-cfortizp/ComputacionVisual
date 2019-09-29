@@ -40,7 +40,7 @@ El objetivo principal de este taller es realizar operaciones para analisis de im
 
 En primera instancia hicimos la conversión a escala de grises de las imágenes y del video en tiempo real, esto lo hicimos de tres formas distintas RGB Mean, Luma 601 y Luma 709, en las imágenes luego de aplicarse cualquiera de estas operaciones se puede apreciar un histograma que muestra la frecuencia de los pixeles en la imagen, se puede realizar la segmentación escogiendo un rango sobre el histograma, aquí solo se mostraran los pixeles que se encuentran dentro del rango y los demás se dejaran de color blanco.
 
-[!s](Recursos/Escala%20de%20Grises.JPG)
+![s](Recursos/Escala%20de%20Grises.JPG)
 
 [!Escala de Grises(RGB Promedio) en Imágen. Segmentacion a partir de histograma](https://github.com/daapinzonch-cfortizp/ComputacionVisual/blob/master/Taller%20Analisis%20de%20Imagenes/Recursos/SegmentacionGrises.JPG)
 
