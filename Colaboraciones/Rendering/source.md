@@ -298,7 +298,7 @@ V:
 #### [Warnock algorithm](https://en.wikipedia.org/wiki/Warnock_algorithm)
 
 <figure>
-    <img height='400' src='fig/Warnock6.PNG'/>
+    <img height='400' src='fig/warnock5.png'/>
     <figcaption>Subdivision basic cases example</figcaption>
 </figure>
 
