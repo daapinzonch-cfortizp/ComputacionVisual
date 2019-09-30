@@ -293,7 +293,16 @@ V:
 </figure>
 
 V:
+## Raster approach: visibility
+### [Hidden surface removal (HSR)](https://en.wikipedia.org/wiki/Hidden_surface_determination) algorithms
+#### [Warnock algorithm](https://en.wikipedia.org/wiki/Warnock_algorithm)
 
+<figure>
+    <img height='400' src='fig/Warnock6.png'/>
+    <figcaption>Subdivision basic cases example</figcaption>
+</figure>
+
+V:
 ## Raster approach: visibility
 ### [Hidden surface removal (HSR)](https://en.wikipedia.org/wiki/Hidden_surface_determination) algorithms
 #### [Warnock algorithm](https://en.wikipedia.org/wiki/Warnock_algorithm)
