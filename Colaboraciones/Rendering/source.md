@@ -299,7 +299,7 @@ V:
 
 <figure>
     <img height='400' src='fig/warnock5.png'/>
-    <figcaption>Subdivision basic cases example</figcaption>
+    <figcaption>Subdivision pixel case example</figcaption>
 </figure>
 
 V:
