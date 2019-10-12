@@ -49,6 +49,8 @@ Se encuentran dos discos del mismo color (Amarillo), los cuales están montados 
 Se encuentra una matriz de cruces giratorias (Azul) y tres puntos dentro de ella (Amarillo), si fija la mirada en el centro podrá ver que los puntos irán desapareciendo, puede que desaparezca solo uno, los dos o todos. Esto se debe al efecto Troxler.
 ### 6. Moiré Patterns:
 Se encuentran dos conjuntos de anillos concentricos (Verde y Amarillo), el amarillo se mueve de manera aleatoria superponiéndose al verde lo cual crea bandas oscuras curvas conocidos como “moirés”.
+## Referencias
+* 135 Visual Phenomena & Optical Illusions by Michael Bach
 ## Entrega
 
 * Plazo para hacer _push_ del repositorio a github: ~~6/10/19~~ 14/10/19 a las 24h.
