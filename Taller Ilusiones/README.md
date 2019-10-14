@@ -31,9 +31,7 @@ Complete la tabla:
 | Munker-White Illusion | Luminance & Contrast | https://michaelbach.de/ot/lum-white/index.html | Haga click para activar o desactivar la ilusión | No Aplica |
 | Motion-Induced Blindness | Motion & Time | https://michaelbach.de/ot/mot-mib/index.html | Haga click para activar o desactivar la ilusión | No Aplica |
 | Moiré Patterns | Luminance & Contrast | https://michaelbach.de/ot/lum-moire1/index.html | Haga click para activar o desactivar la ilusión | No Aplica |
-|        |           |            |                                    |                             |
-|        |           |            |                                    |                             |
-|        |           |            |                                    |                             |
+
 
 2. Describa brevememente las referencias estudiadas y los posibles temas en los que le gustaría profundizar
 
