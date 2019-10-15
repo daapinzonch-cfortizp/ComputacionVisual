@@ -47,8 +47,12 @@ Se encuentran dos discos del mismo color (Amarillo), los cuales están montados 
 Se encuentra una matriz de cruces giratorias (Azul) y tres puntos dentro de ella (Amarillo), si fija la mirada en el centro podrá ver que los puntos irán desapareciendo, puede que desaparezca solo uno, los dos o todos. Esto se debe al efecto Troxler.
 ### 6. Moiré Patterns:
 Se encuentran dos conjuntos de anillos concentricos (Verde y Amarillo), el amarillo se mueve de manera aleatoria superponiéndose al verde lo cual crea bandas oscuras curvas conocidos como “moirés”.
+### Tema de Interés:
+Actualmente las tecnologías como la inteligencia artificial y el machine learning no dejan de avanzar, gracias a las redes generativas antagónicas, hoy en día una máquina es capaz de generar caras nunca antes vistas y pinturas que copian estilos como los de Monet y Van Gogh. Sin embargo a pesar de estos avances las nuevas tecnologías han encontrado un desafío difícil de superar, no existe ningún agente no humano capaz de crear ilusiones ópticas. Nuestro tema de interés es poder generar un agente no humano capaz de aprender de otras ilusiones y después generar sus propias ilusiones.
 ## Referencias
 * 135 Visual Phenomena & Optical Illusions by Michael Bach
+* https://medium.com/@jonathan_hui/gan-some-cool-applications-of-gans-4c9ecca35900
+* https://www.nobbot.com/mira-que-miran/ilusiones-opticas-ia/
 ## Entrega
 
 * Plazo para hacer _push_ del repositorio a github: ~~6/10/19~~ 14/10/19 a las 24h.
