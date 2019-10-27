@@ -10,7 +10,7 @@ Vector v1, v2, v3;
 TimingTask spinningTask;
 boolean yDirection;
 // scaling is a power of 2
-int n = 4;
+int n = 3;
 
 // 2. Hints
 boolean triangleHint = true;
@@ -48,7 +48,7 @@ void setup() {
   // world system.
   spinningTask = new TimingTask(scene) {
     @Override
-    public void execute() {
+      public void execute() {
       scene.eye().orbit(scene.is2D() ? new Vector(0, 0, 1) :
         yDirection ? new Vector(0, 1, 0) : new Vector(1, 0, 0), PI / 100);
     }
@@ -74,47 +74,56 @@ void draw() {
   pop();
 }
 
-float tri_area(boolean type){
+float tri_area(boolean type) {
   float vax = node.location(v2).x();
   float vbx = node.location(v3).x();
   float vcx = node.location(v1).x();
   float vay = node.location(v2).y();
   float vby = node.location(v3).y();
   float vcy = node.location(v1).y();
-  if(type){
+  if (type) {
     return (((vcx-vax)*(vay - vby))- ((vcy-vay)*(vax-vbx))) ;
-  }else{
+  } else {
     return (((vcx-vax)*(vby - vay))- ((vcy-vay)*(vbx-vax)));
   }
 }
 
-float barycentric(Vector a , Vector b,Vector c,boolean type){
+float barycentric(Vector a, Vector b, Vector c, boolean type) {
   float vax = node.location(a).x();
   float vbx = node.location(b).x();
   float vcx = c.x();
   float vay = node.location(a).y();
   float vby = node.location(b).y();
   float vcy = c.y();
-  if(type){
+  if (type) {
     return (((vcx-vax)*(vay - vby))- ((vcy-vay)*(vax-vbx))) ;
-  }else{
+  } else {
     return (((vcx-vax)*(vby - vay))- ((vcy-vay)*(vbx-vax)));
   }
 }
 
-boolean edge(Vector a , Vector b,float i, float j,boolean type){
+boolean edge(Vector a, Vector b, float i, float j, boolean type) {
   float vax = node.location(a).x();
   float vbx = node.location(b).x();
   float vay = node.location(a).y();
   float vby = node.location(b).y();
-  if(type){
+  if (type) {
     return ((((j-vax)*(vay - vby))- ((i-vay)*(vax-vbx))) >=0) ;
-  }else{
+  } else {
     return ((((j-vax)*(vby - vay))- ((i-vay)*(vbx-vax))) >=0) ;
   }
-  
 }
-
+boolean checkinside(float i, float j, boolean type) {
+  return edge(v1, v2, i, j, type) && edge(v2, v3, i, j, type) && edge(v3, v1, i, j, type);
+}
+float [] getcolor(Vector p, boolean type) {
+  float[] rgb = new float[3];
+  float area = tri_area(type);
+  rgb[0] = 255*(barycentric(v2, v3, p, type)/area);
+  rgb[1] = 255*(barycentric(v3, v1, p, type)/area);
+  rgb[2] = 255*(barycentric(v1, v2, p, type)/area);
+  return rgb;
+}
 // Implement this function to rasterize the triangle.
 // Coordinates are given in the node system which has a dimension of 2^n
 void triangleRaster() {
@@ -124,39 +133,24 @@ void triangleRaster() {
     push();
     noStroke();
     float init = (pow(2, n)/2)-0.5;
-    for(float i = -init; i<pow(2, n)/2; i+=1){
-       for(float j = -init; j<pow(2, n)/2; j+=1){
-         boolean inside = true;
-         inside &= edge(v1,v2,i,j,false);
-         inside &= edge(v2,v3,i,j,false);
-         inside &= edge(v3,v1,i,j,false);
-         boolean inside1 = true;
-         inside1 &= edge(v1,v2,i,j,true);
-         inside1 &= edge(v2,v3,i,j,true);
-         inside1 &= edge(v3,v1,i,j,true);
-         if(inside || inside1){
-           float[] rgb = new float[3];
-           Vector p = new Vector(j,i);
-           if(inside){
-             
-               float area = tri_area(false);
-               rgb[0] = 255*(barycentric(v2,v3,p,false)/area);
-               rgb[1] = 255*(barycentric(v3,v1,p,false)/area);
-               rgb[2] = 255*(barycentric(v1,v2,p,false)/area);
-           }else{
-              
-               float area = tri_area(true);
-               rgb[0] = 255*(barycentric(v2,v3,p,true)/area);
-               rgb[1] = 255*(barycentric(v3,v1,p,true)/area);
-               rgb[2] = 255*(barycentric(v1,v2,p,true)/area);
-           }
-           fill(rgb[0],rgb[1],rgb[2]);
-           square(j,i,1);
-         }
+    for (float i = -init; i<pow(2, n)/2; i+=1) {
+      for (float j = -init; j<pow(2, n)/2; j+=1) {
+        boolean inside = checkinside(i, j, false);
+        boolean opinside = checkinside(i, j, true);
+        if (inside || opinside) {
+          float[] rgb = new float[3];
+          Vector p = new Vector(j, i);
+          boolean type = true;
+          if (inside) {
+            type = false;
+          }
+          rgb = getcolor(p, type);
+          fill(rgb[0], rgb[1], rgb[2]);
+          square(j, i, 1);
+        }
+      }
     }
-   
-    }
-     pop();
+    pop();
   }
 }
 
@@ -171,24 +165,24 @@ void randomizeTriangle() {
 void drawTriangleHint() {
   push();
 
-  if(shadeHint)
+  if (shadeHint)
     noStroke();
   else {
     strokeWeight(2);
     noFill();
   }
   beginShape(TRIANGLES);
-  if(shadeHint)
+  if (shadeHint)
     fill(255, 0, 0);
   else
     stroke(255, 0, 0);
   vertex(v1.x(), v1.y());
-  if(shadeHint)
+  if (shadeHint)
     fill(0, 255, 0);
   else
     stroke(0, 255, 0);
   vertex(v2.x(), v2.y());
-  if(shadeHint)
+  if (shadeHint)
     fill(0, 0, 255);
   else
     stroke(0, 0, 255);
