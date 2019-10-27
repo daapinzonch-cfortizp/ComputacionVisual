@@ -25,7 +25,9 @@ Complete la tabla:
 
 | Integrante | github nick |
 |------------|-------------|
-|            |             |
+|Daniel Pinzón|daapinzonch|
+|Christian Ortiz|cfortizp|
+|Daniel Salgado|dasalgadob|
 
 ## Discusión
 
