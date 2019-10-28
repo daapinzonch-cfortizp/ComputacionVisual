@@ -17,6 +17,7 @@ boolean triangleHint = true;
 boolean gridHint = true;
 boolean debug = true;
 boolean shadeHint = false;
+boolean activate = false;
 
 // 3. Use FX2D, JAVA2D, P2D or P3D
 String renderer = P2D;
@@ -144,8 +145,25 @@ void triangleRaster() {
           if (inside) {
             type = false;
           }
-          rgb = getcolor(p, type);
-          fill(rgb[0], rgb[1], rgb[2]);
+          //verificacion de estado de la activacion del anti-aliasing
+          if (activate){
+            float scale = 8;
+            int sum = 0;
+            float step = 1/scale;
+            for (float h = i - (0.5-(step/2)); h < i + 0.5; h += step) {
+              for (float l = j - (0.5-(step/2)); l < j + 0.5; l += step) {
+                if (checkinside(h,l,type)) {
+                  sum += 1;
+                }
+              }
+            }
+            float alpha = sum/(scale*scale);
+            rgb = getcolor(p, type);
+            fill(rgb[0], rgb[1], rgb[2], 255*alpha);
+          }else{
+            rgb = getcolor(p, type);
+            fill(rgb[0], rgb[1], rgb[2]);
+          }
           square(j, i, 1);
         }
       }
@@ -201,6 +219,8 @@ void drawTriangleHint() {
 }
 
 void keyPressed() {
+    if (key == 'a')
+    activate= !activate;
   if (key == 'g')
     gridHint = !gridHint;
   if (key == 't')
