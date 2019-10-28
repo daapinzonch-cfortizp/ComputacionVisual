@@ -47,13 +47,14 @@ Se puede observar que en la medida en la cual se tiene una escala mas pequeña d
 
 ### Anti-aliasing
 
-Para implementar el anti-aliasing es necesario dividir cada pixel en subcuadros. Luego con los conceptos de coordenadas baricentricas y la edge function se puede determinar cuantos de ellos estan incluidos dentro del triangulo. Finalmente con la cantidad de cuadrados que esten dentro del area del triangulo se puede determinar cuando porcentaje de color le corresponde y ponderarlo con el background que tenga la imagen.
+Para implementar el anti-aliasing se realizó usando la técnica de sampling-based que es dividir los pixeles como si se tuviera un espacio de resolución mas grande y luego volver al espacio original. Esto haciendo cada pixel dividirse en subcuadros potencia de 2. Luego con los conceptos de coordenadas baricentricas y la edge function se puede determinar cuantos de ellos estan incluidos dentro del triangulo. Finalmente con la cantidad de cuadrados que esten dentro del area del triangulo se puede determinar cuando porcentaje de color le corresponde y ponderarlo con el background que tenga la imagen.
 
 Como resultado del anti-aliasing se ve un resultado mas fino ya que los colores de los bordes se vuelven semejantes al background de acuerdo a la ponderación calculada. Esta caracteristica solo aplica para los pixeles que se encuentran en donde justo pasa el vector ya que en estos es donde la edge función de sus cuadros mas pequeños no va a tener una ponderación del 100%.
 
 Referencias:
 http://mathworld.wolfram.com/BarycentricCoordinates.html
 https://computergraphics.stackexchange.com/questions/4248/how-is-anti-aliasing-implemented-in-ray-tracing
+https://en.wikipedia.org/wiki/Multisample_anti-aliasing
 
 ## Entrega
 
