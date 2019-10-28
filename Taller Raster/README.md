@@ -35,21 +35,21 @@ Describa los resultados obtenidos. En el caso de anti-aliasing describir las té
 
 ### Rasterizar un triangulo
 
-Por medio de la edge function se puede determinar de que lado se encuentra un punto respecto a una linea. Esta función da un valor negativo para cuando esta del lado izquierdo de la linea, 0 si encuentra en la linea y positivo si se encuentra al lado derecho de la linea. Para el caso del triangulo son 3 lineas y se debe comprobar que el punto a determinar se encuentre al lado derecho de las 3 lines que componen al triangulo.
+Por medio de la edge function se puede determinar de que lado se encuentra un punto respecto a un vector dado. Esta función da un valor negativo para cuando esta del lado izquierdo del vector, cero si encuentra sobre este y positivo si se encuentra al lado derecho de el. Para el caso del triangulo son 3 vectores lo que lo componen y se debe comprobar que un punto elegido se encuentre al lado derecho de estos 3 componente.
 
 Con este paso solo se determina si un pixel esta completamente a la derecha de todos los vectores que componen el triangulo. Pero aún no es suficiente para determinar su color especifico ya que para este se necesitan los 3 lambdas para saber el peso de cada punto.
 
 ### Sombreo de superficie
 
-Para este caso las coordenadas baricentricas resultan muy util ya que permiten representar cualquier punto dentro del triangulo, en terminos de los 3 vectores que conforman el triangulo. Asignando 3 variables lambda las cuales sumadas entre si dan 1, una por cada vector que compone el triangulo. Por lo tanto a cada vertice se le asigna un color y con los lambdas resultantes de un determinado punto se puede asignar un color con pesos especificos para cada pixel que este en el area del triangulo.
+Para este caso las coordenadas baricentricas resultan muy utiles ya que permiten representar cualquier punto dentro del triangulo, en terminos de los 3 vectores que conforman el triangulo. Asignando 3 variables lambda las cuales sumadas entre si dan 1, una por cada vector que compone el triangulo. Por lo tanto a cada vertice se le asigna un color y con los lambdas resultantes de un determinado punto se puede asignar un color con pesos especificos para cada pixel que este en el area del triangulo.
 
-Se puede observar que en la medida en la cual se tiene una escala mas pequeña de pixeles los bordes se van aproximando mas a una imagen mas nitida, pero debido a no tener el anti-aliasing implementado hace que sea muy evidente los bordes.
+Se puede observar que en la medida en la cual se tiene una escala mas pequeña de pixeles los bordes se van aproximando mas a una imagen mas nitida, pero debido a no tener el anti-aliasing implementado hace que sea muy evidente los bordes. Tambien se puede ver las transiciones de cambio de color a lo largo de la superficie ya que se estan combinando los pesos de las coordenadas baricentricas con los colores asignados a cada uno de los vertices.
 
 ### Anti-aliasing
 
 Para implementar el anti-aliasing es necesario dividir cada pixel en subcuadros. Luego con los conceptos de coordenadas baricentricas y la edge function se puede determinar cuantos de ellos estan incluidos dentro del triangulo. Finalmente con la cantidad de cuadrados que esten dentro del area del triangulo se puede determinar cuando porcentaje de color le corresponde y ponderarlo con el background.
 
-Como resultado del anti-aliasing se ve un resultado mas fino ya que los colores de los bordes se vuelven mas semejantes al background de acuerdo a la ponderación calculada.
+Como resultado del anti-aliasing se ve un resultado mas fino ya que los colores de los bordes se vuelven semejantes al background de acuerdo a la ponderación calculada. Esta caracteristica solo aplica para los pixeles que se encuentran en donde justo pasa el vector ya que en estos es donde la edge función de sus cuadros mas pequeños no va a tener una ponderación del 100%.
 
 Referencias:
 http://mathworld.wolfram.com/BarycentricCoordinates.html
